@@ -1,6 +1,12 @@
 # SwiftUI-Infinity-List
 SwiftUI incremental loading list view
 
+```
+InfinityList(model: self.viewModel) { item in
+    Text(item.name)
+}
+```
+
 # Simple use
 ```
 struct User: InfinityElementSupport {
