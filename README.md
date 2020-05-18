@@ -1,4 +1,4 @@
-# SwiftUI-Infinity-List
+# SwiftUI Infinity List
 SwiftUI incremental loading list view
 
 ```
