@@ -1,14 +1,14 @@
 # SwiftUI Infinity List
 SwiftUI incremental loading list view
 
-```
+```swift
 InfinityList(model: self.viewModel) { item in
     Text(item.name)
 }
 ```
 
 # Simple use
-```
+```swift
 struct User: InfinityElementSupport {
     var id = UUID()
     var name: String
@@ -49,7 +49,7 @@ struct ContentView: View {
 ```
 
 # Advanced use (www.themoviedb.org)
-```
+```swift
 struct TheMovieDB: InfinityModelSupport {
     var page: Int
     public var results: [Result]
@@ -173,7 +173,7 @@ struct ContentView: View {
 
 # Advanced example requirements
 I'm using my custom extension for the URLSession task and the simple Response enumeration
-```
+```swift
 enum Response<T>: Error {
     case success(T)
     case failure(_ error: Error)
@@ -211,7 +211,7 @@ extension URLSession {
 ```
 
 # And the list UI source code looks like
-```
+```swift
 struct InfinityList<Content: View, Model: InfinityModelSupport, Element: InfinityElementSupport>: View {
     
     @ObservedObject var viewModel: InfinityViewModel<Model, Element>
@@ -265,7 +265,7 @@ struct InfinityList<Content: View, Model: InfinityModelSupport, Element: Infinit
 
 # InfinityModelSupport, InfinityElementSupport and InfinityViewModel
 As you can see the requirements for InfinityList ViewModel is support of InfinityModelSupport, InfinityElementSupport for the items and InfinityViewModel for the Model
-```
+```swift
 protocol InfinityModelSupport: Decodable {
     associatedtype T
     var infintityItems: [T] { get set }
